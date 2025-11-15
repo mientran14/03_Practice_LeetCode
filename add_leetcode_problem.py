@@ -29,7 +29,7 @@ if __name__ == "__main__":
         if chr.lower() == 'y':
             os.system("git add --all")
             os.system(f'git commit -m "{commit_message}"')
-            os.system("git push origin master")
+            os.system("git push origin main")
             break
         elif chr.lower() == 'n':
             print("Skipping git push.")
