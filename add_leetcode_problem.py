@@ -16,11 +16,9 @@ if __name__ == "__main__":
     else:
         os.mkdir(folder_name)
         with open(os.path.join(folder_name, "solve.cpp"), "w") as f:
-            f.write(f"# Solution for {problem_name}\n")
-        #with open(os.path.join(folder_name, "solve.cpp"), "w") as f:
-            #f.write(f"#include <iostream>\nusing namespace std;\n\nint main() {{\n    // Your code here\n    return 0;\n}}\n")
+            f.write(f"// Your code here\n")
         with open(os.path.join(folder_name, "readme.md"), "w") as f:
-            f.write(f"## Problem\n\n{problem_link}\n\n```\n```\n\n## Observations\n\n## Solution\n\n# Tags\n\n")
+            f.write(f"## Problem\n\n{problem_link}\n\n```python\n```\n\n## Observations\n\n## Solution\n\n# Tags\n\n")
         print(f"Problem '{folder_name}' has been created.")
 
     chr = ''
