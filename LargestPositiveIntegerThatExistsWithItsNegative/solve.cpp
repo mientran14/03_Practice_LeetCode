@@ -1,16 +1,23 @@
 class Solution {
 public:
     int findMaxK(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+    sort(nums.begin(), nums.end());
+    
+    int maxK = -1;
+    for (int n : nums) {
         
-        int maxK = -1;
-        for (int n : nums) {
-            if (n > 0) {
-                if (binary_search(nums.begin(), nums.end(), -n)) {
-                    maxK = max(maxK, n);
-                }
-            }
+        // if (n > 0) {
+        //     if (binary_search(nums.begin(), nums.end(), -n)) {
+        //         maxK = max(maxK, n);
+        //     }
+        // }
+
+        if (n >= 0) break;
+        if (binary_search(nums.begin(), nums.end(), -n)) {
+            maxK = max(maxK, -n);
         }
-        return maxK;
+    }
+    return maxK;
     }
 };
+
