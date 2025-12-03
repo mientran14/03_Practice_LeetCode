@@ -1,0 +1,13 @@
+## Problem
+
+https://leetcode.com/problems/valid-mountain-array/description/
+
+```
+```
+
+## Observations
+
+## Solution
+
+# Tags
+
