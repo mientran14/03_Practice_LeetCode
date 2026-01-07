@@ -14,22 +14,31 @@ public:
     const int MOD = 1e9 + 7;
     long long sumTree = 0, result = 0;
 
-    long long calsumTree (TreeNode* root) {
-        if (!root) return 0;
-        long long sumTree = root->val + calsumTree(root->left) + calsumTree(root->right);
-        return sumTree;
-    }
+    // long long calsumTree (TreeNode* root) {
+    //     if (!root) return 0;
+    //     long long sumTree = root->val + calsumTree(root->left) + calsumTree(root->right);
+    //     return sumTree;
+    // }
     
-    long long calsumSubTree (TreeNode* root) {
+    // long long calsumSubTree (TreeNode* root) {
+    //     if (!root) return 0;
+    //     long long sumSubTree = root->val + calsumSubTree(root->left) + calsumSubTree(root->right);
+    //     result = max(result, sumSubTree * (sumTree - sumSubTree));
+    //     return sumSubTree;
+    // }
+
+    long long calsumTree(TreeNode* root) {
         if (!root) return 0;
-        long long sumSubTree = root->val + calsumSubTree(root->left) + calsumSubTree(root->right);
-        result = max(result, sumSubTree * (sumTree - sumSubTree));
+        long long sumSubTree = root->val + calsumTree(root->left) + calsumTree(root->right);
+        if (sumTree > 0) {
+            result = max(result, sumSubTree * (sumTree - sumSubTree));
+        }
         return sumSubTree;
     }
 
     int maxProduct(TreeNode* root) {
         sumTree =  calsumTree(root);
-        calsumSubTree(root);
+        calsumTree(root);
         return result % MOD;
     }
 };
