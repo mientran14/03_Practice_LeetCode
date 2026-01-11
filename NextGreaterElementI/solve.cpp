@@ -15,7 +15,7 @@ public:
 
         while(!st_dcr.empty()) {
             nextGreater[st_dcr.top()] = -1;
-            st_drc.pop();
+            st_dcr.pop();
         }
 
         for(int n : nums1) {
