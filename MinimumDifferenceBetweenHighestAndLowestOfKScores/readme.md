@@ -1,0 +1,13 @@
+## Problem
+
+https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/description/
+
+```
+```
+
+## Observations
+
+## Solution
+
+# Tags
+
