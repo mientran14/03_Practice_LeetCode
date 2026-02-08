@@ -12,22 +12,21 @@
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
-        bool flag = true;
-
         function<int(TreeNode*)> height = [&](TreeNode* node) -> int {
             if (node == nullptr) return 0;
-
-            int leftHeight = height(node->left);
-            int rightHeight = height(node->right);
-
-            if (abs(leftHeight - rightHeight) > 1) {
-                flag = false;
-            }
-
-            return 1 + max(leftHeight, rightHeight);
+            return 1 + max(height(node->left), height(node->right));
         };
 
-        height(root);
-        return flag;
+        if (root == nullptr) return true;
+
+        int leftHeight = height(root->left);
+        int rightHeight = height(root->right);
+
+        if (abs(leftHeight - rightHeight) > 1) return false;
+
+        bool check_left = isBalanced(root->left);
+        bool check_right = isBalanced(root->right);
+
+        return check_left && check_right;
     }
 };
