@@ -4,9 +4,13 @@ public:
         unordered_map<int, int> bitCount;
         for (int num : arr) {
             int count = 0, n = num;
+            // while (n > 0) {
+            //     count += (n & 1);
+            //     n >>= 1;
+            // }
             while (n > 0) {
-                count += (n & 1);
-                n >>= 1;
+                n = n & (n - 1);
+                count++;
             }
             bitCount[num] = count;
         }
