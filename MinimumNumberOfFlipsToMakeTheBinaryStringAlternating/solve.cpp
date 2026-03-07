@@ -13,6 +13,7 @@ public:
         result = min(count1, count2);
 
         string newS = s + s;
+        // Sliding window
         for (int i = len; i < 2*len; i++) {
             if (newS[i - len] != ((i - len) % 2 == 0 ? '0' : '1')) count1--;
             if (newS[i - len] != ((i - len) % 2 == 0 ? '1' : '0')) count2--;
