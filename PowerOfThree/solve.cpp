@@ -7,8 +7,10 @@ public:
         // return n == 1;
 
         // // #2
-        if (n <= 0) return false;
-        if (n == 1) return true;
-        return n % 3 == 0 && isPowerOfThree(n / 3);
+        // if (n <= 0) return false;
+        // if (n == 1) return true;
+        // return n % 3 == 0 && isPowerOfThree(n / 3);
+
+        return n > 0 && (1162261467 % n) == 0;
     }
 };
