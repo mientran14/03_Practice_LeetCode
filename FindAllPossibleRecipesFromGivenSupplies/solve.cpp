@@ -3,7 +3,6 @@ public:
     vector<string> findAllRecipes(vector<string>& recipes, vector<vector<string>>& ingredients, vector<string>& supplies) {
         unordered_map<string, vector<string>> graph; // Lên công thức
         unordered_map<string, int> needed;
-        unordered_set<string> menu(recipes.begin(), recipes.end());
         vector<string> result;
         
         // Mỗi món thiếu bao nhiêu ingredients?
@@ -24,9 +23,6 @@ public:
             string item = supply.front();
             supply.pop();
             
-            // Nếu đồ lấy ra là món trong menu -> okeee lên mâm
-            if (menu.count(item)) result.push_back(item);
-            
             // Trong công thức, đồ này còn nấu đc cho món nào
             for (string& i : graph[item]) {
                 // Gạch bớt một ng.liệu cần trong công thức
@@ -36,6 +32,7 @@ public:
                 if (needed[i] == 0) {
                     // Đủ đồ để nấu -> cất vào tủ lạnh để làm ng.lieu cho món sau
                     supply.push(i);
+                    result.push_back(i);
                 }
             }
         }
