@@ -33,8 +33,8 @@ public:
             suffixSum += stoneValue[i];
             
             int minNext = dp[i + 1];                                // take 1 stone
-            if (i + 2 <= n) minNext = min(minNext, dp[i + 2]);      // take 1 stones
-            if (i + 3 <= n) minNext = min(minNext, dp[i + 3]);      // take 1 stones
+            if (i + 2 <= n) minNext = min(minNext, dp[i + 2]);      // take 2 stones
+            if (i + 3 <= n) minNext = min(minNext, dp[i + 3]);      // take 3 stones
             
             dp[i] = suffixSum - minNext;
         }
